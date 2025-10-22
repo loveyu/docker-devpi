@@ -43,10 +43,10 @@ jobs:
             linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            jonasal/devpi-server:latest
-            jonasal/devpi-server:${{ env.APP_MAJOR }}
-            jonasal/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}
-            jonasal/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}.${{ env.APP_PATCH }}
+            loveyu/devpi-server:latest
+            loveyu/devpi-server:${{ env.APP_MAJOR }}
+            loveyu/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}
+            loveyu/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}.${{ env.APP_PATCH }}
 
 
   docker_buildx_alpine:
@@ -75,7 +75,7 @@ jobs:
             linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            jonasal/devpi-server:latest-alpine
-            jonasal/devpi-server:${{ env.APP_MAJOR }}-alpine
-            jonasal/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}-alpine
-            jonasal/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}.${{ env.APP_PATCH }}-alpine
+            loveyu/devpi-server:latest-alpine
+            loveyu/devpi-server:${{ env.APP_MAJOR }}-alpine
+            loveyu/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}-alpine
+            loveyu/devpi-server:${{ env.APP_MAJOR }}.${{ env.APP_MINOR }}.${{ env.APP_PATCH }}-alpine

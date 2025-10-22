@@ -32,7 +32,7 @@ as an example here.
 docker run -it -p 3141:3141 \
     -e DEVPI_PASSWORD=password \
     -v $(pwd)/data-server:/devpi/server \
-    --name devpi-server jonasal/devpi-server:latest
+    --name devpi-server loveyu/devpi-server:latest
 ```
 
 The command will also host mount the data directory from the server to your
@@ -46,7 +46,7 @@ It is possible to customize the devpi instance with any of the available
 [arguments][1] by appending them to the command displayed above:
 
 ```bash
-docker run -it <...> jonasal/devpi-server:latest \
+docker run -it <...> loveyu/devpi-server:latest \
     --threads 4 \
     --debug
 ```
@@ -76,7 +76,7 @@ docker run -it --rm --network host \
     -e DEVPI_USER=root \
     -e DEVPI_PASSWORD=password \
     -v $(pwd)/data-client:/devpi/client \
-    jonasal/devpi-client:latest
+    loveyu/devpi-client:latest
 ```
 
 Important note here is that this container uses the "host" network, else the
@@ -126,7 +126,7 @@ docker run -it --rm --network host \
     -e DEVPI_USER=root \
     -e DEVPI_PASSWORD=password \
     -v $(pwd)/data-client:/devpi/client \
-    jonasal/devpi-client:latest
+    loveyu/devpi-client:latest
 ```
 
 Inside the container we will first create another user:
@@ -151,7 +151,7 @@ docker run -it --rm --network host \
     -e DEVPI_USER=local \
     -e DEVPI_PASSWORD=something_long_and_complicated \
     -v $(pwd)/data-client:/devpi/client \
-    jonasal/devpi-client:latest
+    loveyu/devpi-client:latest
 ```
 
 You can now upload files from the `/devpi/client` folder to the current index
@@ -190,7 +190,7 @@ process:
 docker run -it --rm -e DEVPI_PASSWORD=password \
     -v $(pwd)/data-server:/devpi/server \
     -v $(pwd)/tmp:/export \
-    jonasal/devpi-server:old-tag
+    loveyu/devpi-server:old-tag
 ```
 
 If this is successful you should now rename the old data folder (don't delete
@@ -207,7 +207,7 @@ import process:
 docker run -it --rm -e DEVPI_PASSWORD=password \
     -v $(pwd)/data-server:/devpi/server \
     -v $(pwd)/tmp:/import \
-    jonasal/devpi-server:new-tag
+    loveyu/devpi-server:new-tag
 ```
 
 When this one completes you can go back to running the image normally without
@@ -244,7 +244,7 @@ following sources, perhaps they are useful for you too:
 [4]: https://pypi.org/
 [5]: https://pypi.org/project/devpi-server/#history
 [6]: https://pypi.org/project/devpi-client/#history
-[7]: https://hub.docker.com/repository/docker/jonasal/devpi-server/tags?page=1&ordering=last_updated
-[8]: https://hub.docker.com/repository/docker/jonasal/devpi-client/tags?page=1&ordering=last_updated
+[7]: https://hub.docker.com/repository/docker/loveyu/devpi-server/tags?page=1&ordering=last_updated
+[8]: https://hub.docker.com/repository/docker/loveyu/devpi-client/tags?page=1&ordering=last_updated
 [9]: https://gist.github.com/kyhau/7707c6dfa25c2e14e345
 [10]: https://github.com/devpi/devpi/issues/439#issuecomment-1064329177
