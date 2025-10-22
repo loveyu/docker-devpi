@@ -15,7 +15,8 @@ RUN set -ex && \
             libffi8 \
             libffi-dev \
     && \
-# Install Python dependencies.
+# Install Python dependencies. \
+    pip install --no-cache-dir --upgrade pip \
     pip install --no-cache-dir -r /requirements.txt && \
 # Remove everything that is no longer necessary.
     apt-get remove --purge -y \
