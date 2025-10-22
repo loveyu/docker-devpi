@@ -38,9 +38,6 @@ jobs:
           file: ./server/Dockerfile
           platforms: |
             linux/amd64
-            linux/386
-            linux/arm64
-            linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             loveyu/devpi-server:latest
@@ -70,9 +67,6 @@ jobs:
           file: ./server/Dockerfile-alpine
           platforms: |
             linux/amd64
-            linux/386
-            linux/arm64
-            linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             loveyu/devpi-server:latest-alpine
