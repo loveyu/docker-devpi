@@ -56,7 +56,18 @@ done
 
 # Initialize devpi if there is no indication of it being run before.
 if [ ! -f "${DEVPISERVER_SERVERDIR}/.serverversion" ]; then
-    devpi-init --root-passwd "${DEVPI_PASSWORD}"
+    if [ -n "${POSTGRESQL_URL}" ]; then
+        devpi-init --root-passwd "${DEVPI_PASSWORD}" --storage "${POSTGRESQL_URL}"
+    else
+        devpi-init --root-passwd "${DEVPI_PASSWORD}"
+    fi
+fi
+
+# Prepare storage argument for devpi-server based on PostgreSQL configuration
+STORAGE_ARGS=""
+if [ -n "${POSTGRESQL_URL}" ]; then
+    STORAGE_ARGS="--storage ${POSTGRESQL_URL}"
+    log "INFO" "Using PostgreSQL storage: ${POSTGRESQL_URL}"
 fi
 
 # Launch the server as the main process.
@@ -65,4 +76,5 @@ devpi-server \
     --host 0.0.0.0 \
     --port 3141 \
     --restrict-modify=root \
+    ${STORAGE_ARGS} \
     $@
